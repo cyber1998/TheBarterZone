@@ -25,17 +25,25 @@ class CollectData:
 		final_price = purchase_price - annual_depreciation
 		return final_price
 
-#the salvage 1-4 values should be such that their sum is less than purchase price
-purchase_price = int(input("Enter current price of product : "))
-lifespan = int(input("Enter the lifespan of the product : "))
-salvage_v1 = int(input("Enter the salvage value 1 of the product : "))
-salvage_v2 = int(input("Enter the salvage value 2 of the product : "))
-salvage_v3 = int(input("Enter the salvage value 3 of the product : "))
-salvage_v4 = int(input("Enter the salvage value 4 of the product : "))
 
-Item1 = CollectData(purchase_price, lifespan, salvage_v1, salvage_v2, salvage_v3, salvage_v4) 
-SalvageValue = Item1.calcSalvageValue()
-print(Item1.StraightLineAlgorithm(purchase_price, lifespan, SalvageValue))
+if __name__ == '__main__':
+	purchase_price = int(input("Enter current price of product : "))
+	lifespan = int(input("Enter the lifespan of the product : "))
+	#the salvage 1-4 values should be such that their sum is less than purchase price
+	salvage_v1 = int(input("Enter the salvage value 1 of the product : "))
+	salvage_v2 = int(input("Enter the salvage value 2 of the product : "))
+	salvage_v3 = int(input("Enter the salvage value 3 of the product : "))
+	salvage_v4 = int(input("Enter the salvage value 4 of the product : "))
+	Item1 = CollectData(purchase_price, lifespan, salvage_v1, salvage_v2, salvage_v3, salvage_v4) 
+	SalvageValue = Item1.calcSalvageValue()
+	yearCount=1
+	lifespan_to_cal = lifespan
+	while(lifespan_to_cal != 0):
+		print("The value of the product after ", yearCount, "year(s) is : ")
+		yearCount = yearCount+1
+		print(Item1.StraightLineAlgorithm(purchase_price, lifespan_to_cal, SalvageValue))
+		lifespan_to_cal = lifespan_to_cal - 1
+
  
 
 
